@@ -36,7 +36,7 @@ function App() {
 
   useEffect(() => {
     dispatch(refreshTokenAction());
-    const socket = io("http://localhost:5000", { transports: ["websocket"] });
+    const socket = io("http://localhost:4040", { transports: ["websocket"] });
 
     dispatch(addNewSocket(socket));
 

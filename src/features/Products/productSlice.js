@@ -51,6 +51,7 @@ export const createNewProduct = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const { config, setDone } = payload;
+      console.log('config', config);
       const { title, count, desc, discount, imgs, price, sizes, categories } =
         config;
       const media = await imageUpload(imgs);
@@ -65,12 +66,13 @@ export const createNewProduct = createAsyncThunk(
         sizes,
         categories,
       };
-      const res = await ProductAPI.postCreateProduct(newProduct);
+      console.log("🚀 ~ file: productSlice.js ~ line 59 ~ newProduct", newProduct)
+      await ProductAPI.postCreateProduct(newProduct);
       setDone(undefined);
-      toast.success(`${res.msg}`, {
+      toast.success(`${'Create Successfully!'}`, {
         position: "top-right",
       });
-      return res.savedProduct;
+      // return res.savedProduct;
     } catch (err) {
       toastError(err.response.data.msg);
       return rejectWithValue(err.response.msg);

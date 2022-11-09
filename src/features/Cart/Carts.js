@@ -12,6 +12,7 @@ import CartList from "./components/CartList/CartList";
 import Loading from "../../assets/loading.gif";
 const Carts = () => {
   const { cart, auth } = useSelector((state) => state);
+  console.log("🚀 ~ file: Carts.js ~ line 15 ~ Carts ~ cart", cart)
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const [stripeToken, setStripeToken] = useState(null);
@@ -144,11 +145,11 @@ const Carts = () => {
                           <>
                             <div className="form-group mb-0">
                               <StripeCheckout
-                                name="Mytoandeptrai Shop"
-                                image="https://res.cloudinary.com/cuto/image/upload/v1636394003/ecommerce-mern/bkgzzpegzdceh6bxtpne.jpg"
+                                name="Boutique Shop"
+                                image="https://thumbs.dreamstime.com/z/lets-shopping-logo-design-template-shop-icon-135610500.jpg"
                                 billingAddress
                                 shippingAddress
-                                description="Your total is $20"
+                                description="Online Payment here!"
                                 amount={totalCaculating(cart.cartItems)}
                                 token={onToken}
                                 stripeKey={KEY}

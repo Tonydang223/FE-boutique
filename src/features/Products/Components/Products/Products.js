@@ -39,7 +39,7 @@ const Products = ({ products, dispatch }) => {
                     <Link className="d-block" to={`/detail/${item._id}`}>
                       <img
                         className="img-fluid w-100"
-                        src={item?.imgs[1]?.url}
+                        src={item?.imgs[0]?.url}
                         alt="..."
                       />
                     </Link>

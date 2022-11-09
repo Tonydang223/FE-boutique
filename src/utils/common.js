@@ -55,8 +55,9 @@ export const totalCaculating = (item) => {
     0
   );
   const taxPrice = itemPrice * 0.1;
-  const shippingPrice = itemPrice > 2000 ? 0 : 50;
+  const shippingPrice = itemPrice < 2000 ? 0 : 50;
   const totalPrice = itemPrice + shippingPrice + taxPrice;
+  console.log("🚀 ~ file: common.js ~ line 60 ~ totalCaculating ~ totalPrice", totalPrice)
   return totalPrice;
 };
 
