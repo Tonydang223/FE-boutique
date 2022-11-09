@@ -70,14 +70,10 @@ const ModalProduct = ({ title, handleClose, user, setDone, categories }) => {
     discount: 0,
     count: 0,
   });
-  console.log("🚀 ~ file: ModalProduct.js ~ line 72 ~ ModalProduct ~ productInfo", productInfo)
   const [productImages, setProductImages] = useState([]);
   const [productDesc, setProductDesc] = useState("");
-  console.log("🚀 ~ file: ModalProduct.js ~ line 75 ~ ModalProduct ~ productDesc", productDesc)
   const [productSizes, setProductSizes] = useState([]);
-  console.log("🚀 ~ file: ModalProduct.js ~ line 77 ~ ModalProduct ~ productSizes", productSizes)
   const [productCategories, setProductCategories] = useState([]);
-  console.log("🚀 ~ file: ModalProduct.js ~ line 79 ~ ModalProduct ~ productCategories", productCategories)
 
   useEffect(() => {
     if (global.onEdit === true) {
@@ -191,7 +187,6 @@ const ModalProduct = ({ title, handleClose, user, setDone, categories }) => {
   const handleSizeChange = (e) => {
     const newSizes = [...productSizes];
     const clickedSize = newSizes.indexOf(e.target.value);
-    console.log("🚀 ~ file: ModalProduct.js ~ line 193 ~ handleSizeChange ~ clickedSize", clickedSize)
     
     if (clickedSize === -1) {
       newSizes.push(e.target.value);

@@ -12,7 +12,6 @@ import CartList from "./components/CartList/CartList";
 import Loading from "../../assets/loading.gif";
 const Carts = () => {
   const { cart, auth } = useSelector((state) => state);
-  console.log("🚀 ~ file: Carts.js ~ line 15 ~ Carts ~ cart", cart)
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const [stripeToken, setStripeToken] = useState(null);
