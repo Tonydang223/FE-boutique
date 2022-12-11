@@ -31,6 +31,7 @@ export const loginAction = createAsyncThunk(
     const { query, history } = payload;
     try {
       const res = await AuthAPI.postSignIn(query);
+      console.log("🚀 ~ file: authSlice.js:34 ~ res", res)
       history.push("/");
       toast.success(`${res.msg}`, {
         position: "top-right",
@@ -38,7 +39,11 @@ export const loginAction = createAsyncThunk(
 
       localStorage.setItem(
         "firstLogin",
-        JSON.stringify(removeCharacters(res.refresh_token))
+        JSON.stringify(res.accessToken)
+      );
+      localStorage.setItem(
+        "tokenRefresh",
+        JSON.stringify(res.refresh_token)
       );
 
       return res;
@@ -56,6 +61,7 @@ export const logoutAction = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       localStorage.removeItem("firstLogin");
+      localStorage.removeItem("tokenRefresh");
       const res = await AuthAPI.postLogout();
       toast.success(`${res.msg}`, {
         position: "top-right",
@@ -116,11 +122,11 @@ export const resetPasswordAction = createAsyncThunk(
 export const refreshTokenAction = createAsyncThunk(
   "user/refresh_token",
   async (payload, { rejectWithValue }) => {
-    const firstLogin = localStorage.getItem("firstLogin");
-    if (firstLogin) {
+    const tokenRefresh = localStorage.getItem("tokenRefresh");
+    if (tokenRefresh) {
       try {
         const res = await AuthAPI.postRefreshToken({
-          refresh_token: firstLogin,
+          refresh_token: tokenRefresh,
         });
         return res;
       } catch (err) {

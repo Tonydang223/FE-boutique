@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     border: "2px solid #000",
     boxShadow: 5,
-    padding: "20px 40px 30px",
+    padding: "20px 20px",
   },
 }));
 

@@ -79,6 +79,7 @@ export const percentageCaculating = (a, b) => {
   return totalValue;
 };
 
+
 // const allProduct = [
 //   {
 //     id: "123",

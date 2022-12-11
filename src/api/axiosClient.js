@@ -10,10 +10,17 @@ const axiosClient = axios.create({
   },
   paramsSerializer: (params) => queryString.stringify(params),
 });
-axiosClient.interceptors.request.use(async (config) => {
+axiosClient.interceptors.request.use(
   // Handle token here ...
-  return config;
-});
+  async config => {
+    const token = localStorage.getItem("firstLogin");
+    config.headers['Authorization'] = token;
+    return config;
+  },
+  err => {
+    return Promise.reject(err);
+  }
+);
 axiosClient.interceptors.response.use(
   (response) => {
     if (response && response.data) {

@@ -10,6 +10,7 @@ import {
 } from "../notificationSlice";
 
 const NotificationModal = ({ auth, notifications }) => {
+  console.log("🚀 ~ file: NotificationModal.js:13 ~ NotificationModal ~ auth", auth)
   const dispatch = useDispatch();
 
   const handleIsRead = (msg) => {
@@ -77,13 +78,13 @@ const NotificationModal = ({ auth, notifications }) => {
                   </div>
                 ))}
             </div>
-            <div
+            {/* <div
               className="text-right text-danger mr-2"
               style={{ cursor: "pointer" }}
               onClick={handleDeleteAll}
             >
               Delete All
-            </div>
+            </div> */}
           </>
         )}
       </div>

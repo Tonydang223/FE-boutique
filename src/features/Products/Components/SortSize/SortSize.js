@@ -7,6 +7,7 @@ import "./style.css";
 
 const SortSize = () => {
   const [sizes, setSizes] = useState([]);
+  console.log("🚀 ~ file: SortSize.js ~ line 10 ~ SortSize ~ sizes", sizes)
   const [load, setLoad] = useState(false);
   const dispatch = useDispatch();
 

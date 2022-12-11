@@ -105,7 +105,7 @@ const Footer = () => {
                     className="text-white reset-anchor"
                     href="https://www.facebook.com/bito.hihi/"
                   >
-                    My toan deptrai
+                    Boutique
                   </a>
                 </p>
               </div>

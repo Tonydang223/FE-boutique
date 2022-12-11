@@ -55,22 +55,6 @@ const Checkout = () => {
     }
   }, [history]);
 
-  // useEffect(() => {
-  //   if (load) {
-  //     const sendEmail = async () => {
-  //       await CheckoutAPI.postEmail(load);
-  //       dispatch(resetCart());
-  //       //Dùng setTimeout delay 3s
-  //       //Sau 4s nó sẽ thực hiện
-  //       setTimeout(() => {
-  //         setSuccess(true);
-  //         setLoad(!load);
-  //       }, 4000);
-  //     };
-  //     sendEmail();
-  //   }
-  // }, [load, dispatch, success]);
-
   return (
     <div>
       <div className="container">
